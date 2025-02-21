@@ -1,0 +1,61 @@
+server:
+  port: 5325
+  servlet:
+    context-path: /api
+  tomcat:
+    max-connections: 60000
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  servlet:
+    multipart:
+      max-request-size: 1024MB
+      max-file-size: 30MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/videoserver?rewriteBatchedStatements=true
+    username: root
+    password:
+
+mybatis-plus:
+  mapperLocations: classpath:Mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    mapUnderscoreToCamelCase: false
+
+jwt:
+  secretKey: Minecraft&LOL&Naruto@game223
+  audience: audience
+  issuser: Issuser
+
+email:
+  host: 2504319659@qq.com
+  authorizationCode: kmbffazrdemreaia
+
+resource:
+  image:
+    patterns:
+      - /image/**
+    locations:
+      - file:D:/repos/VideoServerResource/image/avatar/
+      - file:D:/repos/VideoServerResource/image/cover/
+    paths:
+      - D:\repos\VideoServerResource\image\avatar\
+      - D:\repos\VideoServerResource\image\cover\
+  video:
+     patterns:
+       - /video/**
+     locations:
+       - file:D:/repos/VideoServerResource/video/short/
+       - file:D:/repos/VideoServerResource/video/long/
+     paths:
+       - D:\repos\VideoServerResource\video\short\
+       - D:\repos\VideoServerResource\video\long\
+
+ffmpeg:
+  path: D:\ffmpeg-6.0-essentials_build\bin\ffmpeg.exe
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="VideoServer.DbOption.Mapper.VideoMapper">
+
+
+    <select id="GetVideos" resultType="VideoServer.Entity.VO.VideoVO">
+        select id,name,title,description,cover,type,publishYear from video
+          where title like CONCAT('%',#{title},'%') and status = 1
+         <if test="type!=null">
+             and title = #{title}
+         </if>
+         <if test="publishYear!=null">
+             and publishYear = #{publishYear}
+         </if>
+    </select>
+    <select id="GetVideoRecords" resultType="VideoServer.Entity.VO.VideoRecordVO">
+        select v.id as videoId,v.title as videoTitle,v.cover as videoCover,vr.current as currentTime,vr.total as totalTime,
+               vr.updateTime from video v left join videoRecord vr on v.id = vr.videoId
+        where vr.userId = #{userId} order by vr.updateTime desc
+    </select>
+</mapper>

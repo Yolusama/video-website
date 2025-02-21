@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="VideoServer.DbOption.Mapper.UserMapper">
+
+    <select id="getUsers" resultType="VideoServer.Entity.VO.UserDisplayVO">
+        select id,email,name,type,status,avatar,createTime,lastLoginTime from user where (id like CONCAT('%',#{queryKey},'%') or
+                                                          name like CONCAT('%',#{queryKey},'%'))
+         <if test="status!=null">
+             and status = #{status}
+         </if>
+         <if test="type!=null">
+             and type = #{type}
+         </if>
+    </select>
+
+</mapper>
