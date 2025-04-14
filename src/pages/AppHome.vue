@@ -2,11 +2,14 @@
   <div id="home">
    <header>
     <div class="id-search">
-         <el-input type="text" v-model="state.kvId" placeholder="kv视频号搜索">
+         <el-input type="text" v-model="state.kvId" placeholder="kv视频号搜索/直接加载源">
             <template #append>
                <el-button type="primary" @click="seeDetail(state.kvId)">
                   <el-icon><Search/></el-icon>
                </el-button>
+            </template>
+            <template #prepend>
+              <el-button type="primary" @click="loadSrc">加载源</el-button>
             </template>
         </el-input>
       </div>
@@ -239,6 +242,10 @@ async function logout() {
     stateStroge.clear();
     freshPage();
   }
+}
+
+function loadSrc(){
+     openPage(`#/OutterSource?src=${state.kvId}`);
 }
 
 

@@ -25,6 +25,7 @@ const home = new Route("/Home","Home",()=>import("@/pages/AppHome.vue"));
 routes.push(home);
 routes.push(new Route("/VideoDetail/:id","VideoDetail",()=>import("@/pages/VideoDetail.vue")))
 routes.push(new Route("/SelfInfo","SelfInfo",()=>import("@/pages/SelfInfo.vue")));
+routes.push(new Route("/OutterSource","OutterSource",()=>import("@/pages/OutterSource.vue")))
 
 const router=createRouter({
        routes:routes,

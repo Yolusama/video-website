@@ -1,12 +1,9 @@
 <template>
-
     <div class="video-player" >
         <video controls :autoplay="autoPlay" class="video-js" :data-setup="{}">
             <source :src="state.source.url" :type="state.source.type" />
         </video>
     </div>
-
-
 </template>
 
 <script setup>
